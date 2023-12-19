@@ -1,13 +1,15 @@
 package atmProject;
 
-public class ATM {
+import java.io.IOException;
 
-	public ATM() {
-		// TODO Auto-generated constructor stub
-	}
+public class ATM extends OptionMenu {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) throws IOException {
+		
+
+		OptionMenu objMenu = new OptionMenu();
+
+		objMenu.getLogin();
 
 	}
 
