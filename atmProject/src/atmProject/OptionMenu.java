@@ -5,15 +5,14 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import org.w3c.dom.css.CSSImportRule;
 
 public class OptionMenu extends Account {
 
 	Scanner menuInput = new Scanner(System.in);
 
-	DecimalFormat moneyFormat = new DecimalFormat("'$'###,##0.00");
+	DecimalFormat moneyFormat = new DecimalFormat("'$'###,##0.00"); // 0: This is also a placeholder for a digit. However, unlike #, if there is no digit in that place, a "0" will be displayed.
 
-	HashMap<Integer, Integer> data = new HashMap<>();
+	HashMap<Integer, Integer> data = new HashMap<>(); // stores customer id and Pin Number
 
 	public void getLogin() throws IOException {
 		int x = 1;
@@ -41,11 +40,11 @@ public class OptionMenu extends Account {
 			int cn = getCustomerNumber();
 			int pn = getPinNumber();
 					
-			if(data.containsKey(cn) && data.get(cn) == pn) {
+			if(data.containsKey(cn) && data.get(cn) == pn) { // matches the customer number with respective pin number
 				getAccountType();
 			}
 			else {
-				System.out.println("\n"+" Wrong Customer Number or Pin Number"+"\n");
+				System.out.println("\n"+"Wrong Customer Number or Pin Number"+"\n");
 			}
 
 		} while (x == 1);
@@ -63,15 +62,15 @@ public class OptionMenu extends Account {
 		switch (selection) {
 
 		case 1:
-			getChecking();
+			getChecking(); // fetches checking account
 			break;
 
 		case 2:
-			getSaving();
+			getSaving(); // fetches saving account
 			break;
 
 		case 3:
-			System.out.println(" Thank you for using this ATM, bye. \n");
+			System.out.println("Thank you for using this ATM, bye. \n");
 			break;
 
 		default:
@@ -95,22 +94,22 @@ public class OptionMenu extends Account {
 
 		switch (selection) {
 		case 1:
-			System.out.println("Checking Account Balance: " + moneyFormat.format(getCheckingBalance()));
+			System.out.println("Checking Account Balance: " + moneyFormat.format(getCheckingBalance())); // prints balance in the decimal format provided in  the beginning
 			getAccountType();
 			break;
 
 		case 2:
-			getCheckingWithdrawInput();
+			getCheckingWithdrawInput(); // calls withdraw method from Account class
 			getAccountType();
 			break;
 
 		case 3:
-			getCheckingDepositInput();
+			getCheckingDepositInput(); // calls deposit method from the Account class
 			getAccountType();
 			break;
 
 		case 4:
-			System.out.println(" Thank you for using this ATM, bye. \n");
+			System.out.println("Thank you for using this ATM, bye. \n"); // exits the 
 			break;
 
 		default:
@@ -149,7 +148,7 @@ public class OptionMenu extends Account {
 			break;
 
 		case 4:
-			System.out.println(" Thank you for using this ATM, bye. \n");
+			System.out.println("Thank you for using this ATM, bye. \n");
 			break;
 
 		default:

@@ -11,9 +11,9 @@ public class Account {
 	private double savingBalance = 0;
 
 	Scanner input = new Scanner(System.in);
-	DecimalFormat moneyFormat = new DecimalFormat("'$'###,##0.00");// check
+	DecimalFormat moneyFormat = new DecimalFormat("'$'###,##0.00");
 
-	public int setCustomerNumber(int customerNumber) {
+	public int setCustomerNumber(int customerNumber) { // setters and getters for all the variables as it is masked with private
 		this.customerNumber = customerNumber;
 		return customerNumber;
 	}
@@ -39,7 +39,7 @@ public class Account {
 		return savingBalance;
 	}
 	
-	public double calCheckingWithdraw( double amount) {
+	public double calCheckingWithdraw( double amount) { // doing subtraction of balance
 		
 		checkingBalance = (checkingBalance - amount);
 		
@@ -55,7 +55,7 @@ public class Account {
 		
 	}
 	
-	public double calCheckingDeposit( double amount) {
+	public double calCheckingDeposit( double amount) { // doing addition of balance with amount
 		
 		checkingBalance = (checkingBalance + amount);
 		
@@ -80,7 +80,7 @@ public class Account {
 		
 		double amount = input.nextDouble();
 		
-		if(checkingBalance - amount >= 0) {
+		if(checkingBalance - amount >= 0) { // withdraw condition
 			
 			calCheckingWithdraw(amount);
 			System.out.println("Updated Checking Account Balance : " + moneyFormat.format(checkingBalance) );		
@@ -122,7 +122,7 @@ public class Account {
 		
 		double amount = input.nextDouble();
 		
-		if(checkingBalance + amount >= 0) {
+		if(checkingBalance + amount >= 0) { // deposit condition
 			
 			calCheckingDeposit(amount);
 			System.out.println("Updated Checking Account Balance : " + moneyFormat.format(checkingBalance) );		
